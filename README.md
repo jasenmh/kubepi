@@ -1,5 +1,5 @@
 # kubepi
-Raspberry Pi Kubernetes cluster, with enough configuration mgmt to keep me i
+Raspberry Pi Kubernetes cluster, with enough configuration mgmt to keep me
 sane.
 
 ## puppet
