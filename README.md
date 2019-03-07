@@ -2,17 +2,15 @@
 Raspberry Pi Kubernetes cluster, with enough configuration mgmt to keep me
 sane.
 
-## puppet
-This requires that the puppet agent already be installed. To use this 
-masterless puppet repo, 
+## scripts
+These scripts are used to make the k8s nodes: setting up hostnames, ip
+address info, installing Docker and Kubernetes, and some infrastructure
+packages to share media across the nodes.
 
 ```bash
-$ cd puppet
-$ puppet apply --modulepath ./modules manifests/site.pp
+$ cd scrips
+$ ./make_node.sh <hostname> <ip_address> <dns_ip_address>
 ```
-
-Machines with a hostname containing the string **server** will be configured
-as Kubernetes server nodes, otherwise they will be setup as worker nodes.
 
 ## k8s
 Kubernetes configuration files.
@@ -33,8 +31,20 @@ $ kubectl apply -f “https://cloud.weave.works/k8s/net?k8s-version=$(kubectl ve
 
 to add the weave-net container network.
 
-## scripts
-These scripts are used to make the k8s nodes.
+## puppet
+This requires that the puppet agent already be installed. To use this 
+masterless puppet repo, 
+
+```bash
+$ cd puppet
+$ puppet apply --modulepath ./modules manifests/site.pp
+```
+
+Machines with a hostname that start with the string **server** will be 
+configured as Kubernetes server nodes, otherwise they will be setup as worker 
+nodes.
+
+This gets applied by the `make_node.sh` script above.
 
 ## references
 I try to keep a list of all the sources I use while setting up this cluster.
