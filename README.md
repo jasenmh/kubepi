@@ -14,6 +14,9 @@ $ puppet apply --modulepath ./modules manifests/site.pp
 Machines with a hostname containing the string **server** will be configured
 as Kubernetes server nodes, otherwise they will be setup as worker nodes.
 
+## k8s
+Kubernetes configuration files.
+
 ## scripts
 These scripts are used to make the k8s nodes.
 
