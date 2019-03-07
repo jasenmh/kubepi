@@ -31,6 +31,7 @@ static ip_address=$ip/24
 static routers=$dns
 static domain_name_servers=$dns
 EOT
+
 check_failure
 
 if [ $failed -eq 1 ]; then
