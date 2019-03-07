@@ -10,7 +10,6 @@ ip=$2
 dns=$3
 
 hostname_and_ip.sh "$hostname" "$ip" "$dns"
-# todo: refactor this script to return 0/1
 
 if [ $? -ne 0 ]; then
   echo "error: hostname_and_ip.sh exited with code $?"
@@ -18,7 +17,6 @@ if [ $? -ne 0 ]; then
 fi
 
 install_k8s.sh
-# todo: refactor this script to return 0/1
 
 if [ $? -ne 0 ]; then
   echo "error: install_k8s.sh exited with code $?"
