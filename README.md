@@ -6,7 +6,7 @@ sane.
 This requires that the puppet agent already be installed. To use this 
 masterless puppet repo, 
 
-```sh
+```bash
 $ cd puppet
 $ puppet apply --modulepath ./modules manifests/site.pp
 ```
@@ -16,6 +16,22 @@ as Kubernetes server nodes, otherwise they will be setup as worker nodes.
 
 ## k8s
 Kubernetes configuration files.
+
+On server node,
+
+```bash
+$ cd k8s
+$ sudo kubeadm init --config kubeadm_conf.yaml
+```
+
+This will output the command to run on each worker node. Once that's been
+done, on the server node,
+
+```bash
+$ kubectl apply -f “https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d ‘\n’)
+```
+
+to add the weave-net container network.
 
 ## scripts
 These scripts are used to make the k8s nodes.
