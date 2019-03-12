@@ -5,12 +5,10 @@ sane.
 ## Raspberry Pi image
 I started with the current, stock Stretch-lite. I added the file `/boot/ssh`
 to enable SSH logins. I then added a `/etc/dhcpd.conf` file to specify
-static IPs and my local DNS proxy. I also enabled containers in the kernel
-and added my public SSH key to the `authorized_keys` file to make life easier.
+static IPs and my local DNS proxy. I also enabled containers in the kernel.
 
 Once I started each node, I manually upgraded the machine with `apt` and 
-installed Puppet and Git CLI to enable the rest of the installs via the 
-`make_node.sh` script.
+installed the rest via the `make_node.sh` script.
 
 ## scripts
 These scripts are used to make the k8s nodes: setting up hostnames, ip
