@@ -1,9 +1,9 @@
 node default {
-  include nfs-common
+  include nfs_common
   include ssh_users
 
-  if $trusted['hostname'] ~= /^server/ {
+  if $hostname =~ /^server/ {
     include ntfs
-    include nfs-server
+    include nfs_server
   }
 }

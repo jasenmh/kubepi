@@ -1,4 +1,4 @@
-class nfs-server {
+class nfs_server {
 
   package { 'nfs-server':
     ensure   => present,

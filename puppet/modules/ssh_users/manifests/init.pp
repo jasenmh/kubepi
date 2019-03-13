@@ -12,7 +12,7 @@ class ssh_users {
     owner   => pi,
     group   => pi,
     mode    => "0700",
-    source  => puppet:///modules/ssh_users/authorized_keys,
+    source  => 'puppet:///modules/ssh_users/authorized_keys',
     require => File['/home/pi/.ssh'],
   }
 

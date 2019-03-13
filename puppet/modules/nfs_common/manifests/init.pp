@@ -1,4 +1,4 @@
-class nfs-common {
+class nfs_common {
 
   package { 'nfs-common':
     ensure   => present,
