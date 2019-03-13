@@ -3,41 +3,24 @@ Raspberry Pi Kubernetes cluster, with enough configuration mgmt to keep me
 sane.
 
 ## Raspberry Pi image
-I started with the current, stock Stretch-lite. I added the file `/boot/ssh`
-to enable SSH logins. I then added a `/etc/dhcpd.conf` file to specify
-static IPs and my local DNS proxy. I also enabled containers in the kernel.
+I started with the current, stock Stretch-lite. On boot, I changed the `pi` 
+password and ran `rasp-config` to set region info.
 
-Once I started each node, I manually upgraded the machine with `apt` and 
-installed the rest via the `make_node.sh` script.
+Once I started each node, I configured and installed the rest via the 
+`make_node.sh` script.
 
 ## scripts
-These scripts are used to make the k8s nodes: setting up hostnames, ip
-address info, installing Docker and Kubernetes, and some infrastructure
+These scripts are used to make the k3s nodes: setting up hostnames, ip
+address info, installing k3s, and some infrastructure
 packages to share media across the nodes.
 
 ```bash
 $ cd scrips
-$ ./make_node.sh <hostname> <ip_address> <dns_ip_address>
+$ ./make_node.sh <hostname> <ip_addr> <router_addr> <dns_addr>
 ```
 
-## k8s
-Kubernetes configuration files.
-
-On server node,
-
-```bash
-$ cd k8s
-$ sudo kubeadm init --config kubeadm_conf.yaml
-```
-
-This will output the command to run on each worker node. Once that's been
-done, on the server node,
-
-```bash
-$ kubectl apply -f “https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d ‘\n’)
-```
-
-to add the weave-net container network.
+## k3s
+Steps to setup k3s on nodes:
 
 ## puppet
 This requires that the puppet agent already be installed. To use this 
