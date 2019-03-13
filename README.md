@@ -15,7 +15,7 @@ address info, installing k3s, and some infrastructure
 packages to share media across the nodes.
 
 ```bash
-$ cd scrips
+$ cd scripts
 $ ./make_node.sh <hostname> <ip_addr> <router_addr> <dns_addr>
 ```
 
