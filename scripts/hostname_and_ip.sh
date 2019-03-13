@@ -26,7 +26,7 @@ check_failure
 
 # Set static IP (performing manually)
 
-#sudo cat <<EOT >> /etc/dhcpd.conf
+#sudo cat <<EOT >> /etc/dhcpcd.conf
 #interface eth0
 #static ip_address=$ip/24
 #static routers=$router

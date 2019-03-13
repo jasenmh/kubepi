@@ -24,7 +24,9 @@ sudo apt-get install puppet -y
 
 sudo apt-get install git -y
 
-git checkout https://github.com/jasenmh/kubepi.git
+sudo apt-get upgrade -y
+
+git clone https://github.com/jasenmh/kubepi.git
 cd kubepi/puppet
 puppet apply --modulepath ./modules manifests/site.pp
 

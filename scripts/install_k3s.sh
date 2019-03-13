@@ -14,10 +14,11 @@ check_failure()
 #sudo dphys-swapfile uninstall && \
 #sudo update-rc.d dphys-swapfile remove
 #check_failure
-#echo Adding " cgroup_enable=cpuset cgroup_enable=memory" to /boot/cmdline.txt
-#sudo cp /boot/cmdline.txt /boot/cmdline_backup.txt
-#orig="$(head -n1 /boot/cmdline.txt) cgroup_enable=cpuset cgroup_enable=memory"
-#echo $orig | sudo tee /boot/cmdline.txt
+
+echo Adding " cgroup_enable=cpuset cgroup_enable=memory" to /boot/cmdline.txt
+sudo cp /boot/cmdline.txt /boot/cmdline_backup.txt
+orig="$(head -n1 /boot/cmdline.txt) cgroup_enable=cpuset cgroup_enable=memory"
+echo $orig | sudo tee /boot/cmdline.txt
 #check_failure
 
 # Download/install k3s
