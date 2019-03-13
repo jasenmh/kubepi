@@ -24,16 +24,15 @@ check_failure
 sudo sed -i s/raspberrypi/$hostname/g /etc/hosts
 check_failure
 
-# Set static IP (performing manually)
+# Set static IP
+sudo cat <<EOT >> /etc/dhcpcd.conf
+interface eth0
+static ip_address=$ip/24
+static routers=$router
+static domain_name_servers=$dns
+EOT
 
-#sudo cat <<EOT >> /etc/dhcpcd.conf
-#interface eth0
-#static ip_address=$ip/24
-#static routers=$router
-#static domain_name_servers=$dns
-#EOT
-
-#check_failure
+check_failure
 
 if [ $failed -eq 1 ]; then
   echo "$0 error: not all commands succeeded"

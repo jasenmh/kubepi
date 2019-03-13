@@ -17,6 +17,8 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+sudo touch /boot/ssh
+
 wget https://apt.puppetlabs.com/puppet-release-stretch.deb
 sudo dpkg -i puppet-release-stretch.deb
 sudo apt-get update
