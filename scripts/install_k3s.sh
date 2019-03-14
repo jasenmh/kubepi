@@ -31,6 +31,7 @@ check_failure
 cd ~
 git clone https://github.com/rancher/k3s.git
 sudo mv k3s/k3s.service /lib/systemd/system
+rm -rf k3s
 cd -
 sudo systemctl daemon-reload
 sudo systemctl enable k3s
