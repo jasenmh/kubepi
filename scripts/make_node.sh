@@ -10,15 +10,12 @@ ip=$2
 router=$3
 dns=$4
 
-cd scripts
-hostname_and_ip.sh "$hostname" "$ip" "$router" "$dns"
+./hostname_and_ip.sh "$hostname" "$ip" "$router" "$dns"
 
 if [ $? -ne 0 ]; then
   echo "error: hostname_and_ip.sh exited with code $?"
   exit 1
 fi
-
-cd -
 
 sudo touch /boot/ssh
 
@@ -32,18 +29,15 @@ sudo touch /boot/ssh
 sudo apt-get upgrade -y
 
 #git clone https://github.com/jasenmh/kubepi.git
-cd puppet
+cd ../puppet
 sudo puppet apply --modulepath ./modules manifests/site.pp
 cd -
 
-cd scripts
-install_k3s.sh
+./install_k3s.sh
 
 if [ $? -ne 0 ]; then
   echo "error: install_k3s.sh exited with code $?"
   exit 1
 fi
-
-cd - 
 
 echo "make_node.sh complete"
