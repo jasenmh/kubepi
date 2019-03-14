@@ -19,18 +19,18 @@ fi
 
 sudo touch /boot/ssh
 
-wget https://apt.puppetlabs.com/puppet-release-stretch.deb
-sudo dpkg -i puppet-release-stretch.deb
-sudo apt-get update
-sudo apt-get install puppet -y
+#wget https://apt.puppetlabs.com/puppet-release-stretch.deb
+#sudo dpkg -i puppet-release-stretch.deb
+#sudo apt-get update
+#sudo apt-get install puppet -y
 
-sudo apt-get install git -y
+#sudo apt-get install git -y
 
 sudo apt-get upgrade -y
 
 git clone https://github.com/jasenmh/kubepi.git
 cd kubepi/puppet
-puppet apply --modulepath ./modules manifests/site.pp
+sudo puppet apply --modulepath ./modules manifests/site.pp
 
 install_k3s.sh
 

@@ -4,7 +4,8 @@ sane.
 
 ## Raspberry Pi image
 I started with the current, stock Stretch-lite. On boot, I changed the `pi` 
-password and ran `rasp-config` to set region info.
+password and ran `rasp-config` to set region info. I then installed Puppet 
+and Git, and then I cloned this repo.
 
 Once I started each node, I configured and installed the rest via the 
 `make_node.sh` script.

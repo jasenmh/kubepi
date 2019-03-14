@@ -28,9 +28,11 @@ sudo mv k3s-armhf /usr/local/bin/k3s
 
 check_failure
 
-wget https://github.com/rancher/k3s/blob/master/k3s.service && \
-sudo mv k3s.service /lib/systemd/system && \
-sudo systemctl daemon-reload && \
+cd ~
+git clone https://github.com/rancher/k3s.git
+sudo mv k3s/k3s.service /lib/systemd/system
+cd -
+sudo systemctl daemon-reload
 sudo systemctl enable k3s
 
 check_failure
